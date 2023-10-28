@@ -16,8 +16,7 @@ while run:
         driver.implicitly_wait(4)
         booking_link = driver.find_element(By.XPATH, "//p/strong[text()='Booking link']")
         actual_link = driver.execute_script("return arguments[0].nextSibling.textContent.trim();", booking_link)
-        if "TBA" not in actual_link:
-            pb.push_note("FWA ROOM BLOCK", actual_link)
+        if "TBA" not in actual_link: pb.push_note("FWA ROOM BLOCK", actual_link)
         print(f"Current Status: {actual_link.strip()}")
         time.sleep(random.uniform(2,4))
     except: 
